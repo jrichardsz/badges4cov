@@ -1,6 +1,6 @@
 # badges4cov
 
-![](./coverage/lines.svg) ![](./coverage/statements.svg) ![](./coverage/branches.svg) ![](./coverage/functions.svg)
+![](./.coverage/lines.svg) ![](./.coverage/statements.svg) ![](./.coverage/branches.svg) ![](./.coverage/functions.svg)
 
 Yes, another image badges generator for nyc coverage json report. I tried more than 3 options from google and no one worked for me. So, I created a new one!!
 
@@ -12,7 +12,7 @@ Install the package:
 
 Ensure that your nyc creates the json summary adding the parameter `--reporter=json-summary`
 
-```
+```json
 "scripts": {
     "test": "nyc --reporter=json-summary mocha  '**/*.test.js'",
 }
@@ -20,11 +20,13 @@ Ensure that your nyc creates the json summary adding the parameter `--reporter=j
 
 Generate the four standard badges adding this script and executing it
 
-```
+```json
 "scripts": {
-    "badges": "badges4cov --source=nyc_json --nyc_json_file_location=./coverage/coverage-summary.json --output_folder=./coverage"
+    "badges": "badges4cov --source=nyc_json --nyc_json_file_location=./coverage/coverage-summary.json --output_folder=.coverage"
 }
 ```
+
+> **--output_folder** should be a relative folder to the workspace not an absolute location
 
 ## direct usage
 
@@ -34,19 +36,19 @@ Install globally the package:
 
 Run:
 
-```
-badges4cov --source=nyc_json --nyc_json_file_location=/foo/coverage-summary.json --output_folder=/bar
+```sh
+badges4cov --source=nyc_json --nyc_json_file_location=/foo/coverage-summary.json --output_folder=bar
 ```
 
 If the **coverage-summary.json** exist, you should see this log:
 
-```
+```sh
 detected coverage metrics
 { lines: 45, statements: 69, functions: 10, branches: 89 }
-created badge: /bar/lines.svg
-created badge: /bar/statements.svg
-created badge: /bar/functions.svg
-created badge: /bar/branches.svg
+created badge: ../bar/lines.svg
+created badge: ../bar/statements.svg
+created badge: ../bar/functions.svg
+created badge: ../bar/branches.svg
 ```
 
 ## Road map

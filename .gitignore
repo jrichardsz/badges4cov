@@ -3,9 +3,10 @@
 /dist
 .nyc_output
 nohup.out
-!/coverage
-/coverage/*
-!/coverage/lines.svg
-!/coverage/statements.svg
-!/coverage/branches.svg
-!/coverage/functions.svg
+coverage
+!/.coverage
+/.coverage/*
+!/.coverage/lines.svg
+!/.coverage/statements.svg
+!/.coverage/branches.svg
+!/.coverage/functions.svg
