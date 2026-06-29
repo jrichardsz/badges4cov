@@ -1,6 +1,6 @@
 # badges4cov
 
-![](./.coverage/lines.svg) ![](./.coverage/statements.svg) ![](./.coverage/branches.svg) ![](./.coverage/functions.svg)
+![](./coverage/lines.svg) ![](./coverage/statements.svg) ![](./coverage/branches.svg) ![](./coverage/functions.svg)
 
 Yes, another image badges generator for nyc coverage json report. I tried more than 3 options from google and no one worked for me. So, I created a new one!!
 

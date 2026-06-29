@@ -1,14 +1,18 @@
-const path = require('path');
-const fs = require('fs');
-const CoverageMetricsReader = require("./CoverageMetricsReader.js");
-const BadgeRender = require("./BadgeRender.js");
+import fs from 'fs';
+import path from 'path';
+import CoverageMetricsReader from "./CoverageMetricsReader.js";
+import BadgeRender from "./BadgeRender.js";
 
-function CoverageBadgesGenerator() {
+export default function CoverageBadgesGenerator() {
 
   this.perform = async (args) => {
     var coverageMetricsReader = new CoverageMetricsReader();
     if (args.source !== "nyc_json") {
       throw Error("source not supported yet: " + args.source);
+    }
+
+    if (args.output_folder == null) {
+      throw Error("output_folder is required");
     }
 
     var defaultMetrics = await coverageMetricsReader.getDefaultsFromNycJsonSummary(args.nyc_json_file_location);
@@ -33,5 +37,3 @@ function CoverageBadgesGenerator() {
     }
   };
 }
-
-module.exports = CoverageBadgesGenerator;
