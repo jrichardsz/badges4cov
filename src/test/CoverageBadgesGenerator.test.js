@@ -1,14 +1,12 @@
-var chai = require('chai');
-var path = require('path');
-var fs = require('fs');
-var os = require('os');
-var expect = chai.expect;
-var assert = chai.assert;
-const CoverageBadgesGenerator = require("../main/CoverageBadgesGenerator.js");
+import { expect, assert } from 'chai';
+import path from 'path';
+import fs from 'fs';
+
+import CoverageBadgesGenerator from "../main/CoverageBadgesGenerator.js";
 
 describe('CoverageBadgesGenerator', function() {
   it('should fail on unkown source', async function() {
-    coverageBadgesGenerator = new CoverageBadgesGenerator();
+    const coverageBadgesGenerator = new CoverageBadgesGenerator();
     var ex;
     try {
       await coverageBadgesGenerator.perform({
@@ -16,11 +14,13 @@ describe('CoverageBadgesGenerator', function() {
       });
     } catch (e) {
       ex = e;
+      console.log(e);
     };
     expect(ex !== undefined, "exception was expected").to.eql(true);
   });
-  it('should throw an error on unkown coverage_type', async function() {
-    coverageBadgesGenerator = new CoverageBadgesGenerator();
+
+  it('should throw an error on missing output_folder', async function() {
+    const coverageBadgesGenerator = new CoverageBadgesGenerator();
     var jsonFilePath = path.join(process.env.INIT_CWD, "src", "test", "resources", "nyc_json_summary", "coverage-summary.json");
     var ex;
     try {
@@ -35,8 +35,26 @@ describe('CoverageBadgesGenerator', function() {
     };
     expect(ex !== undefined, "exception was expected").to.eql(true);
   });
+
+  it('should throw an error on unkown coverage_type', async function() {
+    const coverageBadgesGenerator = new CoverageBadgesGenerator();
+    var jsonFilePath = path.join(process.env.INIT_CWD, "src", "test", "resources", "nyc_json_summary", "coverage-summary.json");
+    var ex;
+    try {
+      await coverageBadgesGenerator.perform({
+        source: "nyc_json",
+        coverage_type: "statementss",
+        nyc_json_file_location: jsonFilePath,
+        output_folder: "foo"
+      });
+    } catch (e) {
+      console.log(e);
+      ex = e;
+    };
+    expect(ex !== undefined, "exception was expected").to.eql(true);
+  });
   it('should generate the standard four badges', async function() {
-    coverageBadgesGenerator = new CoverageBadgesGenerator();
+    const coverageBadgesGenerator = new CoverageBadgesGenerator();
     var jsonFilePath = path.join(process.env.INIT_CWD, "src", "test", "resources", "nyc_json_summary", "coverage-summary.json");
     var outputFolder = (new Date()).getTime().toString(36);
 
@@ -53,7 +71,7 @@ describe('CoverageBadgesGenerator', function() {
     await fs.promises.rm(path.join(process.cwd(), outputFolder), { recursive: true });
   });
   it('should generate only 01 badge', async function() {
-    coverageBadgesGenerator = new CoverageBadgesGenerator();
+    const coverageBadgesGenerator = new CoverageBadgesGenerator();
     var jsonFilePath = path.join(process.env.INIT_CWD, "src", "test", "resources", "nyc_json_summary", "coverage-summary.json");
     var outputFolder = (new Date()).getTime().toString(36);
 

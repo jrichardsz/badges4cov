@@ -1,9 +1,8 @@
-var chai = require('chai');
-var path = require('path');
-var os = require('os');
-var fs = require('fs');
-var expect = chai.expect;
-var assert = chai.assert;
+import { expect, assert } from 'chai';
+import path from 'path';
+import os from 'os';
+import fs from 'fs';
+
 
 describe('ShellExecutor', function() {
   it('should work in the shell', async function() {
@@ -23,6 +22,6 @@ describe('ShellExecutor', function() {
 
     //TODO: strangely --require mocha-suppress-logs is ignored on this execution
     //So there are some ugly lines on the nyc report
-    require("../main/ShellExecutor.js");
+    await import("../main/ShellExecutor.js");
   });
 });

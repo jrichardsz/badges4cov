@@ -1,10 +1,9 @@
-var chai = require('chai');
-var path = require('path');
-var os = require('os');
-var fs = require('fs');
-var expect = chai.expect;
-var assert = chai.assert;
-const BadgeRender = require("../main/BadgeRender.js");
+import { expect, assert } from 'chai';
+import path from 'path';
+import os from 'os';
+import fs from 'fs';
+
+import BadgeRender from "../main/BadgeRender.js";
 
 describe('BadgeRender: percentageToColor', function() {
   it('should return red if pct is less than 50', async function() {

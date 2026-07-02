@@ -1,8 +1,7 @@
-var chai = require('chai');
-var path = require('path');
-var expect = chai.expect;
-var assert = chai.assert;
-const CoverageMetricsReader = require("../main/CoverageMetricsReader.js");
+import { expect, assert } from 'chai';
+import path from 'path';
+
+import CoverageMetricsReader from "../main/CoverageMetricsReader.js";
 
 describe('CoverageMetricsReader: getDefaultsFromNycJsonSummary', function() {
   it('should get defaults from valid nyc json summary', async function() {

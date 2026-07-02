@@ -1,8 +1,9 @@
-var Badge = require('badgs')
-var fs = require('fs')
+import Badge from 'badgs';
+import fs from 'fs';
+
 const fsPromises = fs.promises;
 
-function BadgeRender() {
+export default function BadgeRender() {
 
   this.percentageToColor = (pct) => {
     var COLOR_MAP = {
@@ -30,5 +31,3 @@ function BadgeRender() {
   };
 
 }
-
-module.exports = BadgeRender;

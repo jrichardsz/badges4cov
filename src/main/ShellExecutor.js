@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-const args = require('args-parser')(process.argv);
-const CoverageBadgesGenerator = require("./CoverageBadgesGenerator.js");
-coverageBadgesGenerator = new CoverageBadgesGenerator();
+import argsParser from 'args-parser';
+import CoverageBadgesGenerator from "./CoverageBadgesGenerator.js";
+const args = argsParser(process.argv);
+
+const coverageBadgesGenerator = new CoverageBadgesGenerator();
 (async () => {
   await coverageBadgesGenerator.perform(args)
 })();

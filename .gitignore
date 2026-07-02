@@ -4,9 +4,10 @@
 .nyc_output
 nohup.out
 coverage
-!/.coverage
-/.coverage/*
-!/.coverage/lines.svg
-!/.coverage/statements.svg
-!/.coverage/branches.svg
-!/.coverage/functions.svg
+foo
+!/coverage
+/coverage/*
+!/coverage/lines.svg
+!/coverage/statements.svg
+!/coverage/branches.svg
+!/coverage/functions.svg
