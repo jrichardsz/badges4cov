@@ -16,7 +16,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "6.2.2",
-    "mocha": "^11.3.0",
+    "mocha": "^11.7.6",
     "mocha-suppress-logs": "^0.6.0"
   },
   "dependencies": {
@@ -26,10 +26,11 @@
   },
   "overrides": {
     "mocha": {
-      "serialize-javascript": "^7.0.1"
+      "serialize-javascript": "^7.0.7"
     },
     "jsonpath": {
-      "underscore": "^1.13.7" 
-    }
+      "underscore": "^1.13.7"
+    },
+    "diff": "8.0.3"
   }
 }
