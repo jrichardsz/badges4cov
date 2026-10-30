@@ -4,7 +4,7 @@
 
 Yes, another image badges generator for nyc coverage json report. I tried more than 3 options from google and no one worked for me. So, I created a new one!!
 
-## usage
+## usage as script
 
 Install the package:
 
@@ -28,7 +28,7 @@ Generate the four standard badges adding this script and executing it
 
 > **--output_folder** should be a relative folder to the workspace not an absolute location
 
-## direct usage
+## usage as cli tool
 
 Install globally the package:
 
